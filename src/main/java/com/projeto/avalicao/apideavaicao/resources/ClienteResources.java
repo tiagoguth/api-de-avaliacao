@@ -35,20 +35,20 @@ public class ClienteResources {
 
 	@ApiOperation(value = "Retorna uma lista de clientes")
 	@GetMapping("/listar")
-	public List<ClienteDto> lista(){
-		return clienteService.lista();
+	public List<ClienteDto> listar(){
+		return clienteService.listar();
 	}
 	
-	@GetMapping("/busarClienteId/{id}")
-	@ApiOperation(value = "Burcar cliente pelo seu ID")
-	public ClienteDto busarClienteId(@PathVariable(value="id") Long id) {
-		return clienteService.busarClienteId(id);
+	@GetMapping("/buscarClienteId/{id}")
+	@ApiOperation(value = "Buscar cliente pelo seu ID")
+	public ClienteDto buscarClienteId(@PathVariable(value="id") Long id) {
+		return clienteService.buscarClienteId(id);
 	} 
 	
-	@GetMapping("/busarClienteNome/{nome}")
-	@ApiOperation(value = "Burcar cliente pelo seu Nome")
-	public List<ClienteDto> busarClienteNome(@PathVariable(value="nome") String nome) {
-		return clienteService.busarClienteNome(nome);
+	@GetMapping("/buscarClienteNome/{nome}")
+	@ApiOperation(value = "Buscar cliente pelo seu Nome")
+	public List<ClienteDto> buscarClienteNome(@PathVariable(value="nome") String nome) {
+		return clienteService.buscarClienteNome(nome);
 	} 
 	
 	@DeleteMapping ("/remover/{id}")
@@ -65,10 +65,10 @@ public class ClienteResources {
 		
 	}
 	
-	@PostMapping("/addCliente")
+	@PostMapping("/salvarCliente")
 	@ApiOperation(value = "Adicionar novo cliente")
-	public ClienteDto addCliente(@Valid @RequestBody Cliente cliente) {
-		return clienteService.addCliente(cliente);
+	public ClienteDto salvarCliente(@Valid @RequestBody Cliente cliente) {
+		return clienteService.salvarCliente(cliente);
 	}
 	
 }

@@ -25,11 +25,11 @@ public class Cliente {
 	private Long id;
 	
 	@Column(name="TX_Nome")
-	@NotBlank(message = "O campo nome e obrigatorio")
+	@NotBlank(message = "O campo nome é obrigatorio")
 	private String nome;
 	
 	@Column(name="DT_dataNascimento")
-	@Past(message = "Não peritido valores futuros") 
+	@Past(message = "Não permitido valores futuros") 
 	private Date dataNascimento;
 	
 	@Column(name="NR_Idade")
@@ -38,14 +38,12 @@ public class Cliente {
 	private int idade;
 	
 	@Column(name="Fl_Sexo")
-	@ValidSexo(message = "Permitido apenas os caracteres M ou F")
+	@ValidSexo(message = "Permitido apenas os caracteres M ou F" )
 	private char sexo; 
 	
 	@ManyToOne
-	@NotNull(message = "A cidade e obrigatorio")
+	@NotNull(message = "A cidade é obrigatorio")
 	private Cidade cidade;
-	
-
 
 	public Cidade getCidade() {
 		return cidade;
@@ -94,8 +92,5 @@ public class Cliente {
 	public void setSexo(char sexo) {
 		this.sexo = sexo;
 	}
-	
 
-	
-	
 }

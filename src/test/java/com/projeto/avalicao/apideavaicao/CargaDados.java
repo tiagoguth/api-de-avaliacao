@@ -10,7 +10,7 @@ import javax.swing.text.html.Option;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.projeto.avalicao.apideavaicao.Dto.ClienteDto;
-import com.projeto.avalicao.apideavaicao.mapper.ConveterClassDto;
+import com.projeto.avalicao.apideavaicao.mapper.ConverterClass;
 import com.projeto.avalicao.apideavaicao.model.Cidade;
 import com.projeto.avalicao.apideavaicao.model.Cliente;
 import com.projeto.avalicao.apideavaicao.model.Estado;
@@ -18,7 +18,7 @@ import com.projeto.avalicao.apideavaicao.model.Estado;
 public class CargaDados {
 	
 	@Autowired
-	private ConveterClassDto conveterClassDto;
+	private ConverterClass conveterClassDto;
 	
 	public List<Cliente> lista() {
 		List<Cliente> clientes = new ArrayList<>();
@@ -55,7 +55,7 @@ public class CargaDados {
 	}
 	
 	public List<ClienteDto> clientedtolidt() {
-		return conveterClassDto.conerterListClienteDto(lista());
+		return conveterClassDto.converterEmListaClienteDto(lista());
 		
 	}
 	
@@ -84,7 +84,7 @@ public class CargaDados {
 	}
 	
 	public ClienteDto clienteDtot() {
-		return conveterClassDto.converterClienteIsClienteDto(cliente().get());
+		return conveterClassDto.converterClienteEmClienteDto(cliente().get());
 		
 	}
 }

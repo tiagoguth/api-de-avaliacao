@@ -16,7 +16,7 @@ public class Estado {
 	private Long id;
 	
 	@Column(name="TX_Estado")
-	@NotBlank(message = "Nome do Estado e um campo obrigatorio")
+	@NotBlank(message = "Nome do Estado é um campo obrigatorio")
 	private String nome;
 
 	public Long getId() {
@@ -35,7 +35,4 @@ public class Estado {
 		this.nome = nome;
 	}
 
-	
-	
-	
 }

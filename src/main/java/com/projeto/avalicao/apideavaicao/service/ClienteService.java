@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.projeto.avalicao.apideavaicao.Dto.ClienteDto;
 import com.projeto.avalicao.apideavaicao.Dto.RenomearClienteDto;
 import com.projeto.avalicao.apideavaicao.erroTratamento.ErroDeBadRequest;
-import com.projeto.avalicao.apideavaicao.mapper.ConveterClassDto;
+import com.projeto.avalicao.apideavaicao.mapper.ConverterClass;
 import com.projeto.avalicao.apideavaicao.model.Cliente;
 import com.projeto.avalicao.apideavaicao.repository.ClienteRepository;
 
@@ -20,34 +20,34 @@ public class ClienteService {
 	private ClienteRepository clienteRepository;
 	
 	@Autowired
-	private ConveterClassDto conveterClassDto;
+	private ConverterClass conveterClassDto;
 
-	public List<ClienteDto> lista() {
+	public List<ClienteDto> listar() {
 		List<Cliente> clientes = clienteRepository.findAll();
-		return conveterClassDto.conerterListClienteDto(clientes);
+		return conveterClassDto.converterEmListaClienteDto(clientes);
 	}
 
-	public ClienteDto busarClienteId(Long id) {
+	public ClienteDto buscarClienteId(Long id) {
 		
 		Optional<Cliente> clienteOptional = clienteRepository.findById(id);
 		if (!clienteOptional.isPresent()) {
-			String msg = String.format("Cliente id: %s não exixte", id);
+			String msg = String.format("Cliente id: %s não existe", id);
 			throw new ErroDeBadRequest(msg);		
 		}			
-		return conveterClassDto.converterClienteIsClienteDto(clienteOptional.get());		
+		return conveterClassDto.converterClienteEmClienteDto(clienteOptional.get());		
 		
 	}
 
-	public List<ClienteDto> busarClienteNome(String nome) {	
+	public List<ClienteDto> buscarClienteNome(String nome) {	
 		List<Cliente> clientes = clienteRepository.findByNome(nome);
-		return conveterClassDto.conerterListClienteDto(clientes);
+		return conveterClassDto.converterEmListaClienteDto(clientes);
 	}
 
 	public void deletarCliente(Long id) {
 		
 		Optional<Cliente> clienteOptional = clienteRepository.findById(id);
 		if (!clienteOptional.isPresent()) {
-			String msg = String.format("Cliente id: %s não exixte", id);
+			String msg = String.format("Cliente id: %s não existe", id);
 			throw new ErroDeBadRequest(msg);		
 		}
 			Cliente cliente = clienteOptional.get();
@@ -61,15 +61,15 @@ public class ClienteService {
 
 			Cliente cliente = clienteOptional.get();
 			cliente.setNome(renomearClienteDto.nome);
-			return conveterClassDto.converterClienteIsClienteDto(clienteRepository.save(cliente));
+			return conveterClassDto.converterClienteEmClienteDto(clienteRepository.save(cliente));
 		}
-		String msg = String.format("Cliente id: %s não exixte", renomearClienteDto.id);
+		String msg = String.format("Cliente id: %s não existe", renomearClienteDto.id);
 		throw new ErroDeBadRequest(msg);
 
 	}
 
-	public ClienteDto addCliente(Cliente cliente) {	
-		return conveterClassDto.converterClienteIsClienteDto(clienteRepository.save(cliente));		
+	public ClienteDto salvarCliente(Cliente cliente) {	
+		return conveterClassDto.converterClienteEmClienteDto(clienteRepository.save(cliente));		
 	}
  
 }

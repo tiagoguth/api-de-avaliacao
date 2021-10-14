@@ -5,7 +5,4 @@ public class RenomearClienteDto {
 	public Long id;
 	public String nome;
 	
-	
-
-	
 }

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projeto.avalicao.apideavaicao.Dto.CidadeDto;
-import com.projeto.avalicao.apideavaicao.mapper.ConveterClassDto;
+import com.projeto.avalicao.apideavaicao.mapper.ConverterClass;
 import com.projeto.avalicao.apideavaicao.model.Cidade;
 import com.projeto.avalicao.apideavaicao.model.Estado;
 import com.projeto.avalicao.apideavaicao.repository.CidadeRepository;
@@ -22,11 +22,11 @@ public class CidadeService {
 	private EstadoRepository estadoRepository;
 	
 	@Autowired
-	private ConveterClassDto conveterClassDto;
+	private ConverterClass conveterClassDto;
 	
-	public List<CidadeDto> listaCliente() {
+	public List<CidadeDto> listaCidade() {
 		
-		return conveterClassDto.conerterListCiadeDto(cidadeRepository.findAll());
+		return conveterClassDto.converterParaListaCidadeDto(cidadeRepository.findAll());
 		 
 	}
 
@@ -35,11 +35,11 @@ public class CidadeService {
 	}
 
 	public CidadeDto buscarCidadeNome(String nome) {
-		return conveterClassDto.converterCidadeIsCidadeDto(cidadeRepository.findByNome(nome));
+		return conveterClassDto.converterCidadeEmCidadeDto(cidadeRepository.findByNome(nome));
 	}
 
-	public List<CidadeDto> bucarCidadePorEstado(String estado) {
-		return conveterClassDto.conerterListCiadeDto(cidadeRepository.findByEstado_nome(estado));
+	public List<CidadeDto> buscarCidadePorEstado(String estado) {
+		return conveterClassDto.converterParaListaCidadeDto(cidadeRepository.findByEstado_nome(estado));
 	}
 
 	public Estado salvarEstado(Estado estado) {

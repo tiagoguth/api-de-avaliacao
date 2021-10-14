@@ -19,15 +19,12 @@ public class Cidade {
 	private Long id;
 
 	@Column(name="TX_Nome")
-	@NotBlank(message = "Nome da Cidade e um campo obrigatorio")
+	@NotBlank(message = "Nome da Cidade é um campo obrigatorio")
 	private String nome;
 	
 	@ManyToOne
-	@NotNull(message = "Estado e obrigatorio")
+	@NotNull(message = "Estado é obrigatorio")
 	private Estado estado;
-
-	
-	
 
 	public Long getId() {
 		return id;
@@ -52,8 +49,5 @@ public class Cidade {
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
-
-	
-	
 	
 }

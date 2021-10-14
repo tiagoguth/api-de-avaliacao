@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import com.projeto.avalicao.apideavaicao.CargaDados;
 import com.projeto.avalicao.apideavaicao.Dto.CidadeDto;
 import com.projeto.avalicao.apideavaicao.Dto.ClienteDto;
-import com.projeto.avalicao.apideavaicao.mapper.ConveterClassDto;
+import com.projeto.avalicao.apideavaicao.mapper.ConverterClass;
 import com.projeto.avalicao.apideavaicao.model.Cidade;
 import com.projeto.avalicao.apideavaicao.model.Cliente;
 import com.projeto.avalicao.apideavaicao.repository.ClienteRepository;
@@ -23,7 +23,7 @@ public class ClienteServiceTeste extends CargaDados{
 	@Mock
 	private ClienteRepository clienteRepository;
 	@Mock
-	private ConveterClassDto conveterClassDto;
+	private ConverterClass conveterClassDto;
 	
 	@Spy
 	private ModelMapper modelMapper;

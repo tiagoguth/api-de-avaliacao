@@ -32,34 +32,34 @@ public class CidadeResources {
 	
 	@GetMapping("/listar")
 	@ApiOperation(value = "Retornar uma lista de cidades")
-	public List<CidadeDto> listaCliente(){		
-		return cidadeService.listaCliente();	
+	public List<CidadeDto> listaCidade(){		
+		return cidadeService.listaCidade();	
 	}
 	
 	@PostMapping("/salvarCidade")
-	@ApiOperation(value = "Adiciona uma nova cidade")
+	@ApiOperation(value = "Adicionar uma nova cidade")
 	public Cidade salvarCidade(@Valid @RequestBody  Cidade cidade) {
 		return cidadeService.salvarCidade(cidade);
 		
 	}
 	
 	@PostMapping("/salvarEstado")
-	@ApiOperation(value = "Adiciona um novo Estado")
+	@ApiOperation(value = "Adicionar um novo Estado")
 	public Estado salvarEstado(@Valid @RequestBody  Estado estado) {
 		return cidadeService.salvarEstado(estado);
 		
 	}
 	
-	@GetMapping("/bucarCidadeNome/{nome}")
-	@ApiOperation(value = "Burcar cidade pelo seu nome")
-	public CidadeDto bucarCidadeNome(@PathVariable(value="nome") String nome) {
+	@GetMapping("/buscarCidadeNome/{nome}")
+	@ApiOperation(value = "Buscar cidade pelo seu nome")
+	public CidadeDto buscarCidadeNome(@PathVariable(value="nome") String nome) {
 		return cidadeService.buscarCidadeNome(nome);
 	}
 	
-	@GetMapping("/bucarCidadePorEstado/{estado}")
+	@GetMapping("/buscarCidadePorEstado/{estado}")
 	@ApiOperation(value = "Buscar cidade pelo seu Estado")
-	public List<CidadeDto> bucarCidadePorEstado(@PathVariable(value="estado") String estado) {
-		return cidadeService.bucarCidadePorEstado(estado); 
+	public List<CidadeDto> buscarCidadePorEstado(@PathVariable(value="estado") String estado) {
+		return cidadeService.buscarCidadePorEstado(estado); 
 	}
 	
 	
