@@ -1,20 +1,20 @@
 # API-DE-AVALIAÇÃO 
 * ### Cadastros:
-  * Cadastro de clientes
-  * Cadastro de Cidade
-  * Cadastro de Estado
+  * Cadastro de clientes;
+  * Cadastro de Cidade;
+  * Cadastro de Estado;
 * ### Listagem:
-  * Listagem de Clientes
-  * Listagem de Cidades
-* ### Consultas:
-  * Consultar cidade pelo nome
-  * Consultar cidade pelo estado
-  * Consultar cliente pelo nome
-  * Consultar cliente pelo Id
+  * Listagem de Clientes;
+  * Listagem de Cidades;
+* ### Pesquisas:
+  * Pesquisa a cidade pelo nome;
+  * Pesquisa a cidade pelo estado;
+  * Pesquisa a cliente pelo nome;
+  * Pesquisa o cliente pelo Id;
 * ### Delete:
-  * Remover cliente
-*### Alteração:
-  * Alterar o nome do cliente
+  * Remover cliente;
+* ### Alteração:
+  * Alterar o nome do cliente;
 
 
 ##  Base de dados:
